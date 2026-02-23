@@ -1,0 +1,343 @@
+:root {
+  --bg: #0f0f0f;
+  --bg-muted: #161616;
+  --cream: #f5f1e6;
+  --warm-gray: #bfb8a9;
+  --accent: #d44134;
+  --accent-dark: #a52c26;
+  --text: #efeadf;
+  --text-muted: #ddd7cc;
+  --border: rgba(255, 255, 255, 0.12);
+  --radius: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Oswald", "Space Grotesk", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+h4 {
+  font-size: 1.4rem;
+}
+
+p {
+  margin: 0 0 1rem;
+  color: var(--text);
+}
+
+.eyebrow,
+.hero__eyebrow,
+.hero__label {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.8rem;
+  color: var(--warm-gray);
+  margin-bottom: 0.75rem;
+}
+
+.container {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+}
+
+.hero {
+  background: linear-gradient(180deg, #1c1c1c 0%, #0f0f0f 100%);
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero__title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-transform: uppercase;
+}
+
+.hero__title p {
+  font-size: 1.2rem;
+  letter-spacing: 0.4em;
+  color: var(--warm-gray);
+}
+
+.hero__logo {
+  width: 72px;
+  margin-bottom: 1rem;
+}
+
+.hero__bottle,
+.footer__bottle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottle-placeholder {
+  width: 180px;
+  height: 440px;
+  border: 1px dashed var(--border);
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--warm-gray);
+  padding: 1rem;
+}
+
+.flavor-tags {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.flavor-tags li {
+  border: 1px solid var(--border);
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.85rem;
+}
+
+.section {
+  padding: 4.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.section--dark {
+  background: var(--bg-muted);
+}
+
+.section--texture {
+  background: linear-gradient(130deg, #1c1c1c, #181412);
+  border-top: 1px solid var(--border);
+}
+
+.text-split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.photo-card {
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.6));
+  padding: 2rem;
+  border-radius: calc(var(--radius) * 1.2);
+  border: 1px solid var(--border);
+  position: relative;
+}
+
+.photo-card::after {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.photo-placeholder {
+  height: 320px;
+  border-radius: var(--radius);
+  border: 1px dashed var(--border);
+  display: grid;
+  place-items: center;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+}
+
+.bottle-chip {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+}
+
+.venue-grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.venue-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.venue-type {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  color: var(--warm-gray);
+}
+
+.venue-meta {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.ghost-btn,
+.primary-btn {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 0.85rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.ghost-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.primary-btn {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.primary-btn:hover {
+  background: var(--accent-dark);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.join-club {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.signup-form input {
+  padding: 1rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+  font-family: inherit;
+}
+
+.signup-form input::placeholder {
+  color: var(--text-muted);
+}
+
+.form-note {
+  font-size: 0.85rem;
+  color: var(--warm-gray);
+}
+
+.footer {
+  padding: 3rem 0 2rem;
+  background: #080808;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.footer__legal {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+  text-align: center;
+  color: var(--warm-gray);
+  font-size: 0.85rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .hero__title h1 {
+    font-size: 3.25rem;
+  }
+
+  .hero__logo {
+    width: 56px;
+  }
+
+  .photo-placeholder {
+    height: 260px;
+  }
+}
