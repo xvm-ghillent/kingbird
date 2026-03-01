@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top Aperitifs Around the World | Kingbird</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        background: linear-gradient(180deg, #111 0%, #050505 100%);
+      }
+      .page-shell {
+        width: min(960px, 92vw);
+        margin: 4rem auto;
+        background: rgba(13, 13, 13, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
+        padding: 3rem;
+        box-shadow: 0 40px 90px rgba(0, 0, 0, 0.35);
+      }
+      h1 {
+        font-size: clamp(2.5rem, 6vw, 3.75rem);
+      }
+      p.lede {
+        font-size: 1.05rem;
+        color: var(--text-muted);
+        margin-bottom: 2rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+        background: rgba(255, 255, 255, 0.01);
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      thead {
+        background: rgba(255, 255, 255, 0.08);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-size: 0.8rem;
+      }
+      th,
+      td {
+        padding: 1rem 1.25rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      tbody tr:last-child td {
+        border-bottom: none;
+      }
+      tbody tr:nth-child(odd) {
+        background: rgba(255, 255, 255, 0.01);
+      }
+      .tag {
+        display: inline-flex;
+        padding: 0.25rem 0.75rem;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--warm-gray);
+      }
+      .footer-link {
+        display: inline-flex;
+        margin-top: 2rem;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-size: 0.85rem;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page-shell">
+      <p class="eyebrow">Drinking Atlas</p>
+      <h1>Top 10 Aperitifs & Where They’re From</h1>
+      <p class="lede">
+        A quick cheat sheet for bar teams comparing the classics. Each bottle brings a different
+        viewpoint on bitterness, sweetness, and botanicals across Italy, France, and beyond.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Aperitif</th>
+            <th>Origin</th>
+            <th>Profile</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01</td>
+            <td>Aperol</td>
+            <td>Padua, Italy</td>
+            <td>Sunset-orange, bitter orange + rhubarb, low ABV spritz staple.</td>
+          </tr>
+          <tr>
+            <td>02</td>
+            <td>Campari</td>
+            <td>Milan, Italy</td>
+            <td>Bold bitter backbone for Negronis; gentian, cherry, quinine.</td>
+          </tr>
+          <tr>
+            <td>03</td>
+            <td>Lillet Blanc</td>
+            <td>Podensac, France</td>
+            <td>White Bordeaux fortified with citrus liqueurs; floral, honeyed finish.</td>
+          </tr>
+          <tr>
+            <td>04</td>
+            <td>Suze</td>
+            <td>Pontarlier, France</td>
+            <td>Electric yellow gentian bitter; earthy, peppery bite.</td>
+          </tr>
+          <tr>
+            <td>05</td>
+            <td>Cynar</td>
+            <td>Veneto, Italy</td>
+            <td>Artichoke-based amaro with cocoa + cola notes; fantastic with soda.</td>
+          </tr>
+          <tr>
+            <td>06</td>
+            <td>Select Aperitivo</td>
+            <td>Venice, Italy</td>
+            <td>Classic Venetian spritz bitter—juniper, rhubarb, vanilla.</td>
+          </tr>
+          <tr>
+            <td>07</td>
+            <td>Ramazzotti Rosato</td>
+            <td>Milan, Italy</td>
+            <td>Bright hibiscus + orange blossom; built for sparkling wine.</td>
+          </tr>
+          <tr>
+            <td>08</td>
+            <td>Byrrh Grand Quinquina</td>
+            <td>Thuir, France</td>
+            <td>Red wine quinquina with dark fruit, spice, and cinchona bark.</td>
+          </tr>
+          <tr>
+            <td>09</td>
+            <td>Pimm’s No. 1</td>
+            <td>London, England</td>
+            <td>Gin-based fruit cup; cucumber, citrus, soft spice—summer cups essential.</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>Gancia Americano Rosso</td>
+            <td>Canelli, Italy</td>
+            <td>Herbal red bitter with alpine botanicals; bridges vermouth + amaro.</td>
+          </tr>
+        </tbody>
+      </table>
+      <a class="footer-link" href="/">← Back to Kingbird</a>
+    </main>
+  </body>
+</html>
