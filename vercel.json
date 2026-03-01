@@ -3,14 +3,9 @@
   "name": "kingbird",
   "builds": [
     { "src": "index.html", "use": "@vercel/static" },
+    { "src": "aperitifs.html", "use": "@vercel/static" },
     { "src": "styles.css", "use": "@vercel/static" },
     { "src": "scripts.js", "use": "@vercel/static" },
     { "src": "assets/**/*", "use": "@vercel/static" }
-  ],
-  "routes": [
-    { "src": "/styles.css", "dest": "/styles.css" },
-    { "src": "/scripts.js", "dest": "/scripts.js" },
-    { "src": "/assets/(.*)", "dest": "/assets/$1" },
-    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
