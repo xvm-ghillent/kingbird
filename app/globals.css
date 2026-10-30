@@ -1,0 +1,2448 @@
+@font-face {
+  font-family: "Obviously";
+  src: url("/assets/fonts/obviously-condensed-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: "Della Respira";
+  src: url("/assets/fonts/della-respira-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+@import "tailwindcss";
+:root {
+  --cream: #f1eddf;
+  --ink: #222a22;
+  --red: #b9432c;
+  --line: #2632262b;
+  --serif: "Della Respira";
+  --display: "Obviously";
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--cream);
+  color: var(--ink);
+}
+body {
+  font-family: var(--serif);
+  -webkit-font-smoothing: antialiased;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  font: inherit;
+  cursor: pointer;
+}
+button:disabled {
+  cursor: default;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  border: 0;
+  background: none;
+  color: inherit;
+}
+button:focus-visible,
+a:focus-visible,
+[tabindex="-1"]:focus-visible {
+  outline: 3px solid #e2a02b;
+  outline-offset: 4px;
+}
+img {
+  display: block;
+}
+button,
+a {
+  touch-action: manipulation;
+}
+.arrow {
+  width: 23px;
+  height: 23px;
+  flex: none;
+}
+.flipped {
+  transform: rotate(180deg);
+}
+.wordmark {
+  height: auto;
+  width: 100%;
+  filter: brightness(0);
+  object-fit: contain;
+}
+.eyebrow {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.5;
+  text-transform: none;
+  margin: 0;
+}
+.ambient {
+  position: fixed;
+  inset: -12%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(70px);
+  opacity: 0.065;
+  transition: background-image 0.4s;
+  pointer-events: none;
+}
+.experience {
+  position: relative;
+  min-height: 100svh;
+  padding: 0 5.3vw;
+  max-width: 1800px;
+  margin: auto;
+}
+.desktop-header {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  gap: 30px;
+}
+.brand-button {
+  padding: 0;
+  width: 180px;
+  flex: none;
+}
+.desktop-header > p {
+  font-size: 9px;
+  letter-spacing: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.desktop-header > p > span {
+  font-size: 22px;
+}
+.desktop-header > a {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 11px;
+  font-weight: 400;
+  min-height: 44px;
+  border-bottom: 1px solid var(--ink);
+}
+.desktop-header > a > .arrow {
+  width: 18px;
+}
+.stage {
+  display: grid;
+  grid-template-columns: 1fr minmax(360px, 440px) 1fr;
+  gap: 5.5vw;
+  align-items: center;
+  min-height: calc(100svh - 146px);
+  padding: 26px 0;
+}
+.editorial-aside {
+  padding-top: 30px;
+}
+.editorial-aside > .eyebrow {
+  color: var(--red);
+}
+.editorial-aside h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3vw, 46px);
+  line-height: 1.25;
+  font-weight: 400;
+  letter-spacing: 0;
+  margin: 30px 0 26px;
+}
+.editorial-aside h2 em,
+.aside-offer h2 em,
+.drawer h2 em,
+.age-card h2 em {
+  color: var(--red);
+  font-style: normal;
+}
+.aside-rule {
+  display: block;
+  width: 34px;
+  height: 1px;
+  background: var(--red);
+  margin: 0 0 24px;
+}
+.aside-copy {
+  font-size: 12px;
+  line-height: 1.8;
+}
+.text-button {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 11px;
+  font-weight: 400;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+.text-button .arrow {
+  width: 17px;
+}
+.navigation-hint {
+  font-size: 8px;
+  line-height: 1.9;
+  letter-spacing: 0;
+  margin-top: 55px;
+  color: #626658;
+}
+.story-panel {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: min(790px, calc(100svh - 190px));
+  min-height: 600px;
+  overflow: hidden;
+  box-shadow: 0 16px 50px #34352727;
+  border-radius: 5px;
+  background: #24231f;
+  color: var(--cream);
+  container-type: size;
+}
+.story-panel.light {
+  color: var(--ink);
+  background: var(--cream);
+}
+.story-progress {
+  position: absolute;
+  top: 0;
+  left: 15px;
+  right: 15px;
+  height: 27px;
+  display: flex;
+  gap: 4px;
+  z-index: 12;
+}
+.story-progress > button {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  padding: 0;
+  height: 27px;
+}
+.story-progress > button > span {
+  display: block;
+  height: 3px;
+  border-radius: 1px;
+  background: #ffffff57;
+  transition: background-color 0.2s;
+}
+.story-progress > button > span.filled {
+  background: var(--cream);
+}
+.light .story-progress > button > span {
+  background: #242a2233;
+}
+.light .story-progress > button > span.filled {
+  background: var(--ink);
+}
+.story-header {
+  position: absolute;
+  top: 32px;
+  left: 26px;
+  right: 26px;
+  z-index: 12;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.story-brand {
+  padding: 0;
+  text-align: center;
+  width: 130px;
+}
+.story-brand .wordmark {
+  filter: brightness(0) invert(1);
+  width: 130px;
+  height: auto;
+}
+.light .story-brand .wordmark {
+  filter: brightness(0);
+}
+.story-brand > span {
+  display: block;
+  font-size: 7px;
+  letter-spacing: 0;
+  margin-top: 7px;
+}
+.story-shop {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0;
+  border: 1px solid #fff7;
+  padding: 0 13px;
+  border-radius: 30px;
+}
+.light .story-shop {
+  border-color: var(--line);
+}
+.story-viewport {
+  position: absolute;
+  inset: 0;
+  touch-action: pan-y;
+}
+.story-slide {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.story-photo,
+.story-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.story-photo {
+  position: absolute;
+  inset: 0;
+}
+.story-photo img {
+  animation: photo-reveal 0.8s ease-out both;
+}
+.photo-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    #070c08a8 0%,
+    #070c0870 20%,
+    #070c081a 55%,
+    #070c0820 64%,
+    #070c08c9 87%,
+    #070c08e6 100%
+  );
+}
+.story-copy {
+  position: relative;
+  z-index: 2;
+  margin: 108px 28px 0;
+  pointer-events: none;
+}
+.story-kicker {
+  font-size: 8px;
+  text-transform: none;
+  letter-spacing: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  font-weight: 400;
+}
+.tiny-star {
+  font-size: 16px;
+  line-height: 1;
+}
+.story-copy h1 {
+  font-family: var(--display);
+
+  letter-spacing: 0;
+  line-height: 1.04;
+  font-size: clamp(38px, 7.7cqw, 48px);
+  font-weight: 400;
+  margin: 0 0 17px;
+  max-width: 340px;
+  text-wrap: balance;
+}
+.layout-photo .story-copy h1 {
+  font-size: clamp(42px, 10.8cqw, 54px);
+  max-width: 360px;
+  line-height: 1.03;
+}
+.story-description {
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 310px;
+  text-wrap: pretty;
+}
+.story-footer {
+  position: absolute;
+  left: 26px;
+  right: 26px;
+  bottom: 16px;
+  z-index: 12;
+}
+.primary-cta {
+  border-radius: 2px;
+  background: var(--cream);
+  color: var(--ink);
+  width: 100%;
+  min-height: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  font-family: var(--serif);
+  font-size: 15px;
+  border: 1px solid transparent;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.primary-cta:hover {
+  background: #fff9e9;
+  transform: translateY(-1px);
+}
+.light .primary-cta {
+  background: var(--ink);
+  color: var(--cream);
+}
+.light .primary-cta:hover {
+  background: #364333;
+}
+.story-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+.round-button {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #ffffff75;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s;
+}
+.round-button:hover:not(:disabled) {
+  background: #ffffff24;
+}
+.round-button:disabled {
+  opacity: 0.25;
+}
+.round-button .arrow {
+  width: 18px;
+}
+.light .round-button {
+  border-color: var(--line);
+}
+.story-count {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0;
+  min-height: 40px;
+}
+.story-count i {
+  font-weight: 400;
+  font-style: normal;
+  opacity: 0.6;
+}
+.story-count > span:first-child {
+  font-weight: 400;
+}
+.index-icon {
+  font-size: 20px;
+  margin-left: 4px;
+  line-height: 1;
+}
+.replay-symbol {
+  font-size: 24px;
+}
+.tap-zone {
+  position: absolute;
+  z-index: 5;
+  top: 90px;
+  bottom: 145px;
+  width: 25%;
+  padding: 0;
+  touch-action: pan-y;
+}
+.tap-left {
+  left: 0;
+}
+.tap-right {
+  right: 0;
+}
+.tap-zone:disabled {
+  pointer-events: none;
+}
+.product-canvas {
+  position: absolute;
+  inset: 0;
+  background: #efe8d5;
+}
+.canvas-circle {
+  position: absolute;
+  width: 120%;
+  aspect-ratio: 1;
+  border: 1px solid #b2423122;
+  left: -10%;
+  top: 36%;
+  border-radius: 50%;
+}
+.canvas-circle:before {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  border: 1px solid #b242311c;
+  border-radius: inherit;
+}
+.canvas-word {
+  position: absolute;
+  left: 50%;
+  top: 58%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  font-family: var(--display);
+  font-size: 100px;
+
+  color: #b9432c12;
+  letter-spacing: 0;
+}
+.layout-product .story-copy,
+.layout-purchase .story-copy,
+.layout-flavor .story-copy {
+  margin-top: 108px;
+}
+.layout-product .story-copy h1 {
+  max-width: 330px;
+}
+.bottle-composition {
+  position: absolute;
+  top: 37%;
+  bottom: 140px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product-bottle {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  transform: rotate(9deg);
+  filter: drop-shadow(10px 15px 6px #15171020);
+}
+.product-seal {
+  position: absolute;
+  right: 25px;
+  bottom: 25%;
+  font-family: var(--display);
+
+  display: grid;
+  place-content: center;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.1;
+  border-radius: 50%;
+  height: 96px;
+  width: 96px;
+  transform: rotate(12deg);
+  background: var(--red);
+  color: var(--cream);
+}
+.product-seal em {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.7;
+  font-style: normal;
+}
+.product-seal > span {
+  font-family: var(--serif);
+  font-size: 5px;
+  letter-spacing: 0;
+  margin-top: 6px;
+}
+.product-facts {
+  position: absolute;
+  bottom: 146px;
+  left: 27px;
+  right: 27px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--line);
+  padding-top: 13px;
+  font-size: 6px;
+  letter-spacing: 0;
+}
+.flavor-composition {
+  position: absolute;
+  top: 48%;
+  bottom: 140px;
+  left: 0;
+  right: 0;
+}
+.flavor-words {
+  position: absolute;
+  left: 28px;
+  top: 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.flavor-words > span {
+  font-family: var(--display);
+
+  font-size: 30px;
+  letter-spacing: 0;
+  color: var(--red);
+  line-height: 1.1;
+}
+.flavor-composition > img {
+  position: absolute;
+  right: 12%;
+  height: 110%;
+  width: auto;
+  top: -4%;
+  transform: rotate(17deg);
+  filter: drop-shadow(10px 10px 6px #0002);
+}
+.layout-flavor .story-copy h1 {
+  font-size: 37px;
+}
+.purchase-composition {
+  position: absolute;
+  top: 40%;
+  bottom: 158px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.bottle-pair {
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+.bottle-pair > img {
+  position: absolute;
+  right: 17%;
+  height: 100%;
+  width: auto;
+  transform: rotate(7deg);
+  filter: drop-shadow(8px 10px 6px #0003);
+}
+.bottle-pair > img.bottle-back {
+  height: 85%;
+  left: 14%;
+  right: auto;
+  bottom: 0;
+  transform: rotate(-9deg);
+}
+.purchase-offer {
+  width: 42%;
+  padding-right: 10px;
+}
+.purchase-offer > p:first-child {
+  font-size: 7px;
+  letter-spacing: 0;
+  line-height: 1.8;
+  max-width: 120px;
+}
+.purchase-offer > strong {
+  display: flex;
+  gap: 7px;
+  align-items: flex-start;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 44px;
+  color: var(--red);
+  margin: 10px 0;
+}
+.purchase-offer > strong > span {
+  font-family: var(--serif);
+  font-size: 8px;
+  margin-top: 12px;
+  color: var(--ink);
+}
+.purchase-offer > p:last-child {
+  font-size: 10px;
+}
+.shipping-note {
+  font-size: 8px;
+  text-align: center;
+  margin: 9px 0 0;
+  line-height: 1.4;
+}
+.layout-purchase .story-copy h1 {
+  font-size: 38px;
+}
+.shop-aside {
+  align-self: center;
+  min-width: 0;
+}
+.mini-bottle-scene {
+  position: relative;
+  height: 265px;
+  margin-top: 5px;
+}
+.mini-bottle {
+  height: 250px;
+  width: auto;
+  position: absolute;
+  left: 26%;
+  top: 0;
+  transform: rotate(-10deg);
+  filter: drop-shadow(12px 12px 9px #25271927);
+}
+.bottle-emblem {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  opacity: 0.045;
+  right: 0;
+  top: 10%;
+  object-fit: contain;
+  filter: brightness(0);
+}
+.mini-caption {
+  position: absolute;
+  bottom: 10%;
+  right: 5px;
+  font-size: 7px;
+  letter-spacing: 0;
+  line-height: 1.5;
+  transform: rotate(8deg);
+}
+.mini-caption > em {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-style: normal;
+  letter-spacing: 0;
+}
+.aside-offer {
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+}
+.aside-offer > .eyebrow {
+  font-size: 8px;
+  color: var(--red);
+}
+.aside-offer h2 {
+  font-family: var(--serif);
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 400;
+  letter-spacing: 0;
+  margin: 15px 0;
+}
+.aside-offer > p:not(.eyebrow):not(.offer-note) {
+  font-size: 11px;
+  margin-bottom: 23px;
+}
+.aside-offer > p > span {
+  padding: 0 5px;
+}
+.aside-shop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 400;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 13px;
+}
+.aside-shop .arrow {
+  width: 19px;
+}
+.offer-note {
+  font-size: 8px !important;
+  line-height: 1.7;
+  opacity: 0.7;
+  margin: 11px 0;
+}
+.desktop-footer {
+  height: 56px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 7px;
+  letter-spacing: 0;
+}
+.desktop-footer p {
+  display: flex;
+  gap: 13px;
+}
+.desktop-footer button {
+  font-family: var(--serif);
+  font-size: 10px;
+  letter-spacing: 0;
+  padding: 10px 0;
+}
+.mobile-responsibility {
+  display: none;
+}
+.media-fallback {
+  position: absolute;
+  bottom: 27%;
+  left: 30px;
+  font-family: var(--serif);
+  font-size: 20px;
+  max-width: 180px;
+}
+.modal-backdrop,
+.age-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: #17201980;
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.drawer {
+  background: var(--cream);
+  width: 520px;
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: 5px;
+  padding: 22px 30px 30px;
+  color: var(--ink);
+  box-shadow: 0 20px 100px #0005;
+  animation: drawer-in 0.3s ease-out;
+}
+.drawer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+.drawer-top > .eyebrow {
+  font-size: 8px;
+  color: var(--red);
+}
+.close-button {
+  font-size: 28px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+  flex: none;
+}
+.drawer h2 {
+  font-family: var(--serif);
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 1.23;
+  letter-spacing: 0;
+  margin: 8px 0 25px;
+}
+.drawer-handle {
+  display: none;
+}
+.recipe-tabs {
+  display: flex;
+  gap: 5px;
+  border-bottom: 1px solid var(--line);
+  margin: 0 0 20px;
+}
+.recipe-tabs > button {
+  flex: 1;
+  padding: 13px 3px;
+  font-size: 11px;
+  border-bottom: 2px solid transparent;
+  min-height: 44px;
+}
+.recipe-tabs > button[aria-selected="true"] {
+  border-color: var(--red);
+  color: var(--red);
+  font-weight: 400;
+}
+.recipe-intro {
+  display: grid;
+  grid-template-columns: 1fr 110px;
+  gap: 20px;
+  align-items: center;
+}
+.recipe-intro > div > .eyebrow {
+  font-size: 6px;
+}
+.recipe-intro h3 {
+  font-family: var(--display);
+
+  font-size: 29px;
+  line-height: 1.15;
+  margin: 12px 0 10px;
+}
+.recipe-intro p:not(.eyebrow) {
+  font-size: 11px;
+  line-height: 1.6;
+}
+.recipe-intro > img {
+  width: 110px;
+  height: 145px;
+  object-fit: cover;
+}
+.recipe-serve {
+  font-size: 7px;
+  letter-spacing: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.recipe-serve > span {
+  color: var(--red);
+  font-size: 14px;
+}
+.photo-caption {
+  font-size: 8px;
+  line-height: 1.5;
+  opacity: 0.7;
+  margin: 14px 0 23px;
+}
+.recipe-panel h4 {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 400;
+  margin: 22px 0 12px;
+}
+.ingredients {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.ingredients > li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 25px;
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+  font-size: 11px;
+  line-height: 1.4;
+}
+.ingredients strong {
+  font-weight: 400;
+  text-align: right;
+  max-width: 45%;
+}
+.recipe-steps {
+  list-style: none;
+  counter-reset: step;
+  padding: 0;
+}
+.recipe-steps > li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 29px;
+  font-size: 11px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.recipe-steps > li:before {
+  content: counter(step, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  font-size: 8px;
+  color: var(--red);
+  line-height: 2.3;
+}
+.drawer-cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 53px;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--serif);
+  font-size: 14px;
+  padding: 14px 20px;
+  text-align: left;
+  border-radius: 2px;
+  margin-top: 24px;
+}
+.drawer-cta:hover {
+  background: #3b4936;
+}
+.drawer-lead {
+  font-size: 13px;
+  line-height: 1.8;
+}
+.botanical-list {
+  margin: 24px 0;
+}
+.botanical-list > div {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.botanical-list dt {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--red);
+  margin-bottom: 9px;
+}
+.botanical-list dd {
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 0;
+}
+.ingredient-note {
+  font-size: 10px;
+  line-height: 1.8;
+  opacity: 0.8;
+}
+.chapter-list {
+  display: flex;
+  flex-direction: column;
+}
+.chapter-list > button {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  border-top: 1px solid var(--line);
+  padding: 17px 0;
+  text-align: left;
+  min-height: 70px;
+}
+.chapter-list > button[aria-current] {
+  color: var(--red);
+}
+.chapter-list > button > span {
+  font-size: 9px;
+  align-self: flex-start;
+  padding-top: 5px;
+}
+.chapter-list > button > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.chapter-list small {
+  font-size: 7px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.chapter-list strong {
+  font-family: var(--serif);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.chapter-list .arrow {
+  width: 16px;
+}
+.age-backdrop {
+  z-index: 70;
+  background: #242a22b3;
+  backdrop-filter: blur(15px);
+}
+.age-card {
+  width: 460px;
+  background: var(--cream);
+  padding: 35px 40px 28px;
+  text-align: center;
+  border: 1px solid #fff8;
+  box-shadow: 0 20px 90px #0004;
+}
+.age-emblem {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+  margin: 0 auto 22px;
+  filter: brightness(0);
+}
+.age-card > .eyebrow {
+  font-size: 8px;
+}
+.age-card h2 {
+  font-family: var(--serif);
+  font-size: 31px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0;
+  margin: 20px 0;
+}
+.age-card > p:not(.eyebrow):not(.age-legal) {
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 0 auto;
+  max-width: 310px;
+}
+.age-no {
+  font-size: 10px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  padding: 16px;
+  min-height: 44px;
+  margin: 4px 0;
+}
+.age-legal {
+  font-size: 7px;
+  letter-spacing: 0;
+  opacity: 0.7;
+  margin: 15px 0 0;
+}
+.age-card > .text-button {
+  margin: 22px auto 0;
+}
+.noscript {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--cream);
+  padding: 50px;
+}
+.noscript a {
+  text-decoration: underline;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+.enter-forward .story-copy {
+  animation: copy-forward 0.45s ease-out both;
+}
+.enter-backward .story-copy {
+  animation: copy-backward 0.4s ease-out both;
+}
+.enter-forward .bottle-composition,
+.enter-forward .flavor-composition,
+.enter-forward .purchase-composition {
+  animation: product-in 0.55s ease-out both;
+}
+@keyframes photo-reveal {
+  from {
+    transform: scale(1.035);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes copy-forward {
+  from {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes copy-backward {
+  from {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes product-in {
+  from {
+    opacity: 0;
+    translate: 0 12px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@keyframes drawer-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (min-width: 1450px) {
+  .stage {
+    gap: 7vw;
+  }
+  .story-panel {
+    height: min(830px, calc(100svh - 190px));
+  }
+  .story-copy h1 {
+    font-size: 48px;
+  }
+  .layout-photo .story-copy h1 {
+    font-size: 54px;
+  }
+}
+@media (max-width: 1100px) {
+  .experience {
+    padding: 0 3vw;
+  }
+  .stage {
+    grid-template-columns: 1fr minmax(340px, 410px) 1fr;
+    gap: 3vw;
+  }
+  .editorial-aside h2 {
+    font-size: 32px;
+  }
+  .aside-offer h2 {
+    font-size: 26px;
+  }
+  .mini-bottle {
+    left: 15%;
+  }
+  .mini-caption {
+    display: none;
+  }
+  .desktop-header > p {
+    font-size: 7px;
+    gap: 8px;
+  }
+  .desktop-header > a {
+    font-size: 9px;
+  }
+  .brand-button {
+    width: 150px;
+  }
+  .aside-shop {
+    font-size: 9px;
+  }
+  .story-panel {
+    min-height: 610px;
+  }
+  .aside-copy {
+    font-size: 10px;
+  }
+}
+@media (max-width: 850px) and (min-width: 601px) {
+  .stage {
+    grid-template-columns: 1fr minmax(340px, 420px);
+    gap: 4vw;
+    max-width: 680px;
+    margin: auto;
+  }
+  .shop-aside {
+    display: none;
+  }
+  .desktop-header > p {
+    display: none;
+  }
+  .editorial-aside h2 {
+    font-size: 30px;
+  }
+  .desktop-footer > span {
+    display: none;
+  }
+  .desktop-header {
+    height: 75px;
+  }
+  .stage {
+    min-height: calc(100svh - 125px);
+  }
+  .story-panel {
+    height: calc(100svh - 175px);
+  }
+}
+@media (max-width: 600px) {
+  html,
+  body {
+    background: #222a22;
+  }
+  .ambient,
+  .desktop-header,
+  .desktop-footer,
+  .editorial-aside,
+  .shop-aside {
+    display: none;
+  }
+  .experience {
+    padding: 0;
+    min-height: 100svh;
+  }
+  .stage {
+    display: block;
+    padding: 0;
+    min-height: 0;
+  }
+  .story-panel {
+    height: calc(100svh - 22px);
+    height: calc(100dvh - 22px);
+    min-height: 520px;
+    max-height: none;
+    border-radius: 0;
+    box-shadow: none;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+  }
+  .story-header {
+    left: 23px;
+    right: 23px;
+    top: max(30px, env(safe-area-inset-top));
+  }
+  .story-copy {
+    margin: 110px 26px 0;
+  }
+  .story-copy h1 {
+    font-size: 44px;
+  }
+  .layout-photo .story-copy h1 {
+    font-size: clamp(39px, 11.5vw, 57px);
+    line-height: 1.03;
+    max-width: 400px;
+  }
+  .story-description {
+    font-size: 12px;
+    max-width: 310px;
+    line-height: 1.7;
+  }
+  .story-footer {
+    left: 22px;
+    right: 22px;
+    bottom: max(13px, env(safe-area-inset-bottom));
+  }
+  .primary-cta {
+    min-height: 54px;
+    font-size: 15px;
+  }
+  .story-bottom-row {
+    margin-top: 10px;
+  }
+  .story-brand {
+    width: 125px;
+  }
+  .story-brand .wordmark {
+    width: 125px;
+  }
+  .story-progress {
+    left: 12px;
+    right: 12px;
+    top: 0;
+    height: 25px;
+  }
+  .story-progress > button {
+    height: 25px;
+  }
+  .story-shop {
+    min-height: 40px;
+  }
+  .mobile-responsibility {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    font-size: 7px;
+    line-height: 22px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--cream);
+    margin: 0;
+    height: 22px;
+  }
+  .tap-zone {
+    bottom: 145px;
+  }
+  .bottle-composition {
+    top: 37%;
+    bottom: 145px;
+  }
+  .layout-product .story-copy,
+  .layout-purchase .story-copy,
+  .layout-flavor .story-copy {
+    margin-top: 108px;
+  }
+  .product-facts {
+    bottom: 145px;
+  }
+  .purchase-composition {
+    bottom: 160px;
+    top: 40%;
+  }
+  .layout-purchase .story-copy h1 {
+    font-size: 40px;
+  }
+  .layout-flavor .story-copy h1 {
+    font-size: 38px;
+  }
+  .flavor-composition {
+    top: 47%;
+    bottom: 145px;
+  }
+  .flavor-words > span {
+    font-size: 29px;
+  }
+  .product-seal {
+    right: 23px;
+  }
+  .modal-backdrop {
+    align-items: flex-end;
+    padding: 0;
+    background: #17201999;
+  }
+  .drawer {
+    width: 100%;
+    max-height: 94dvh;
+    border-radius: 14px 14px 0 0;
+    padding: 10px 24px max(26px, env(safe-area-inset-bottom));
+    animation: drawer-in 0.3s ease-out;
+  }
+  .drawer-handle {
+    display: block;
+    width: 34px;
+    height: 3px;
+    border-radius: 10px;
+    background: #222a2240;
+    margin: 0 auto 8px;
+  }
+  .drawer-top {
+    margin-top: 0;
+  }
+  .drawer h2 {
+    font-size: 32px;
+  }
+  .age-backdrop {
+    padding: 20px;
+  }
+  .age-card {
+    padding: 28px 26px 20px;
+    max-width: 420px;
+  }
+  .age-card h2 {
+    font-size: 29px;
+  }
+  .age-emblem {
+    height: 72px;
+    width: 72px;
+  }
+  .chapter-list > button {
+    padding: 14px 0;
+  }
+  .story-count {
+    font-size: 9px;
+  }
+  .purchase-offer > strong {
+    font-size: 42px;
+  }
+}
+@media (max-height: 740px) {
+  .story-copy {
+    margin-top: 100px;
+  }
+  .story-copy h1,
+  .layout-photo .story-copy h1 {
+    font-size: 41px;
+    line-height: 1.02;
+    margin-bottom: 12px;
+  }
+  .story-kicker {
+    margin-bottom: 10px;
+    font-size: 7px;
+  }
+  .story-description {
+    font-size: 11px;
+    line-height: 1.6;
+  }
+  .story-header {
+    top: 29px;
+  }
+  .story-brand {
+    width: 110px;
+  }
+  .story-brand .wordmark {
+    width: 110px;
+  }
+  .story-brand > span {
+    font-size: 6px;
+  }
+  .layout-product .story-copy,
+  .layout-purchase .story-copy,
+  .layout-flavor .story-copy {
+    margin-top: 97px;
+  }
+  .layout-purchase .story-copy h1,
+  .layout-flavor .story-copy h1 {
+    font-size: 34px;
+  }
+  .layout-product .story-copy h1 {
+    font-size: 37px;
+  }
+  .bottle-composition {
+    top: 41%;
+    bottom: 139px;
+  }
+  .product-facts {
+    bottom: 132px;
+    padding-top: 9px;
+  }
+  .story-footer {
+    bottom: 9px;
+  }
+  .primary-cta {
+    min-height: 48px;
+    padding: 10px 17px;
+    font-size: 14px;
+  }
+  .round-button {
+    height: 33px;
+    width: 33px;
+  }
+  .story-bottom-row {
+    margin-top: 8px;
+  }
+  .flavor-composition {
+    top: 53%;
+    bottom: 133px;
+  }
+  .flavor-words {
+    top: 9%;
+  }
+  .flavor-words > span {
+    font-size: 23px;
+  }
+  .purchase-composition {
+    top: 44%;
+    bottom: 152px;
+  }
+  .purchase-offer > strong {
+    font-size: 35px;
+  }
+  .product-seal {
+    height: 75px;
+    width: 75px;
+    font-size: 13px;
+  }
+  .product-seal em {
+    font-size: 8px;
+  }
+  .shipping-note {
+    font-size: 7px;
+    margin-top: 6px;
+  }
+  .recipe-intro > img {
+    height: 115px;
+  }
+  .age-emblem {
+    height: 60px;
+    width: 60px;
+    margin-bottom: 15px;
+  }
+  .age-card h2 {
+    font-size: 27px;
+    margin: 15px 0;
+  }
+  .age-card {
+    padding-top: 22px;
+    padding-bottom: 18px;
+  }
+}
+@media (max-width: 360px) {
+  .story-copy,
+  .layout-product .story-copy,
+  .layout-purchase .story-copy,
+  .layout-flavor .story-copy {
+    margin-left: 21px;
+    margin-right: 21px;
+  }
+  .layout-photo .story-copy h1 {
+    font-size: 38px;
+  }
+  .layout-product .story-copy h1 {
+    font-size: 34px;
+  }
+  .layout-purchase .story-copy h1,
+  .layout-flavor .story-copy h1 {
+    font-size: 31px;
+  }
+  .flavor-words {
+    left: 20px;
+  }
+  .flavor-words > span {
+    font-size: 21px;
+  }
+  .story-description {
+    font-size: 10.5px;
+  }
+  .recipe-intro {
+    grid-template-columns: 1fr 85px;
+  }
+  .recipe-intro > img {
+    width: 85px;
+    height: 120px;
+  }
+  .drawer h2 {
+    font-size: 28px;
+  }
+  .story-kicker {
+    letter-spacing: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *:before,
+  *:after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (min-width: 601px) and (max-height: 740px) {
+  .desktop-header {
+    height: 70px;
+  }
+  .stage {
+    padding: 18px 0;
+    min-height: calc(100svh - 112px);
+  }
+  .story-panel {
+    height: calc(100svh - 148px);
+    min-height: 520px;
+  }
+  .desktop-footer {
+    height: 42px;
+  }
+  .editorial-aside h2 {
+    font-size: 34px;
+    margin: 22px 0;
+  }
+  .navigation-hint {
+    margin-top: 32px;
+  }
+  .mini-bottle-scene {
+    height: 230px;
+  }
+  .mini-bottle {
+    height: 218px;
+  }
+}
+/* Let the actual copy determine the room left for each product composition. */
+.layout-product,
+.layout-flavor,
+.layout-purchase {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 145px;
+}
+.layout-purchase {
+  padding-bottom: 167px;
+}
+.layout-product .story-copy,
+.layout-flavor .story-copy,
+.layout-purchase .story-copy {
+  flex: none;
+}
+.bottle-composition,
+.flavor-composition,
+.purchase-composition {
+  position: relative;
+  inset: auto;
+  flex: 1;
+  min-height: 0;
+  margin-top: 20px;
+}
+.product-bottle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  translate: -50% 0;
+  max-height: 100%;
+  object-fit: contain;
+}
+.flavor-composition > img {
+  top: 0;
+  height: 100%;
+}
+.flavor-words {
+  top: 12%;
+}
+.photo-shade {
+  background: linear-gradient(
+    180deg,
+    rgba(7, 12, 8, 0.68) 0%,
+    rgba(7, 12, 8, 0.6) 38%,
+    rgba(7, 12, 8, 0.06) 58%,
+    rgba(7, 12, 8, 0.18) 65%,
+    rgba(7, 12, 8, 0.79) 87%,
+    rgba(7, 12, 8, 0.9) 100%
+  );
+}
+@media (max-height: 740px) {
+  .layout-product,
+  .layout-flavor {
+    padding-bottom: 135px;
+  }
+  .layout-purchase {
+    padding-bottom: 153px;
+  }
+  .bottle-composition,
+  .flavor-composition,
+  .purchase-composition {
+    margin-top: 12px;
+  }
+}
+
+/* Round two: the story is the entire experience. */
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  font-synthesis: none;
+}
+body,
+button,
+a,
+input,
+select {
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.ambient {
+  opacity: 0.12;
+  filter: blur(65px);
+  inset: -20%;
+  transform: scale(1.05);
+}
+.experience {
+  width: 100%;
+  max-width: none;
+  min-height: 100dvh;
+  padding: 0;
+  margin: 0;
+}
+.stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  padding: 24px 0;
+  gap: 0;
+  max-width: none;
+  margin: 0;
+}
+.story-panel {
+  width: min(430px, calc((100dvh - 48px) * 0.5625), calc(100vw - 40px));
+  height: auto;
+  aspect-ratio: 9/16;
+  min-height: 0;
+  max-height: none;
+  border-radius: 5px;
+  box-shadow: 0 12px 70px #20251b25;
+  flex: none;
+}
+.story-progress {
+  top: max(3px, env(safe-area-inset-top));
+  left: 14px;
+  right: 14px;
+  gap: 4px;
+  height: 24px;
+}
+.story-progress > button {
+  height: 24px;
+  min-width: 0;
+}
+.story-progress > button > .progress-track {
+  display: block;
+  position: relative;
+  height: 2px;
+  overflow: hidden;
+  border-radius: 0;
+  background: #f1eddf55;
+}
+.light .story-progress > button > .progress-track {
+  background: #222a2228;
+}
+.progress-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--cream);
+  transform-origin: left center;
+  transition: transform 16ms linear;
+}
+.light .progress-fill {
+  background: var(--ink);
+}
+.story-header {
+  top: max(31px, calc(env(safe-area-inset-top) + 24px));
+  left: 24px;
+  right: 24px;
+  align-items: center;
+}
+.story-brand,
+.story-brand .wordmark {
+  width: 118px;
+}
+.skip-offer {
+  font-family: var(--serif);
+  font-size: 11px;
+  line-height: 1.4;
+  min-height: 44px;
+  padding: 4px 0 4px 12px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 1px;
+  white-space: nowrap;
+}
+.story-copy,
+.layout-product .story-copy,
+.layout-purchase .story-copy,
+.layout-flavor .story-copy {
+  margin: 109px 25px 0;
+}
+.story-kicker {
+  font-family: var(--serif);
+  font-size: 10px;
+  line-height: 1.45;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 400;
+  margin-bottom: 14px;
+  gap: 8px;
+}
+.tiny-star {
+  width: 14px;
+  height: 14px;
+  flex: none;
+}
+.story-copy h1,
+.layout-photo .story-copy h1,
+.layout-product .story-copy h1,
+.layout-flavor .story-copy h1,
+.layout-purchase .story-copy h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(32px, 10.7cqw, 48px);
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+  max-width: 100%;
+  text-wrap: balance;
+}
+.story-description {
+  font-family: var(--serif);
+  font-size: clamp(11px, 3.1cqw, 13px);
+  line-height: 1.65;
+  max-width: 320px;
+  margin: 0;
+  text-wrap: pretty;
+}
+.story-detail {
+  font-family: var(--serif);
+  font-size: 9px;
+  line-height: 1.6;
+  opacity: 0.85;
+  margin: 12px 0 0;
+  max-width: 300px;
+}
+.story-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.story-photo img {
+  animation: none;
+}
+.story-slide .photo-shade {
+  background: linear-gradient(
+    180deg,
+    #070c08a6 0%,
+    #070c0894 36%,
+    #070c080d 58%,
+    #070c081a 65%,
+    #070c08bd 85%,
+    #070c08e6 100%
+  );
+}
+.story-footer {
+  left: 24px;
+  right: 24px;
+  bottom: max(12px, env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+.primary-cta {
+  width: auto;
+  max-width: 100%;
+  min-height: 43px;
+  display: inline-flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 9px 20px;
+  font-size: 13px;
+  line-height: 1.45;
+  border-radius: 2px;
+  box-shadow: none;
+}
+.primary-cta .arrow {
+  height: 19px;
+  width: 19px;
+}
+.story-panel:has(.layout-purchase) .primary-cta {
+  width: 100%;
+  min-height: 50px;
+  justify-content: space-between;
+  padding: 12px 18px;
+  font-size: 14px;
+}
+.story-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 9px;
+  margin-top: 12px;
+}
+.round-button {
+  height: 32px;
+  width: 32px;
+  flex: none;
+}
+.round-button .arrow {
+  width: 16px;
+  height: 16px;
+}
+.story-count {
+  font-family: var(--serif);
+  font-size: 10px;
+  letter-spacing: 0;
+  gap: 9px;
+  min-height: 36px;
+}
+.story-count span {
+  font-weight: 400 !important;
+}
+.index-icon {
+  font-size: 17px;
+}
+.playback-toggle {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  flex: none;
+  border: 1px solid #f1eddf70;
+  border-radius: 50%;
+}
+.playback-toggle svg {
+  width: 12px;
+  height: 12px;
+}
+.light .playback-toggle {
+  border-color: var(--line);
+}
+.responsibility {
+  font-family: var(--serif);
+  font-size: 8px;
+  line-height: 1.5;
+  text-align: center;
+  margin: 9px 0 0;
+  opacity: 0.8;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.shipping-note {
+  font-family: var(--serif);
+  font-size: 8px;
+  line-height: 1.6;
+  max-width: 310px;
+  margin: 8px 0 0;
+  text-align: center;
+}
+.tap-zone {
+  top: 86px;
+  bottom: 150px;
+  width: 27%;
+}
+.product-seal,
+.product-seal em {
+  font-family: var(--display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  font-size: 18px;
+  line-height: 1;
+}
+.product-seal em {
+  font-size: 15px;
+  margin-top: 3px;
+}
+.product-seal > span {
+  font-family: var(--serif);
+  font-size: 7px;
+  line-height: 1.5;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.product-facts {
+  font-family: var(--serif);
+  font-size: 8px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  bottom: 145px;
+  padding-top: 10px;
+  gap: 10px;
+}
+.canvas-word {
+  font-family: var(--display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+.layout-product,
+.layout-flavor {
+  padding-bottom: 153px;
+}
+.layout-purchase {
+  padding-bottom: 177px;
+}
+.bottle-composition,
+.purchase-composition {
+  margin-top: 17px;
+}
+.purchase-offer > p:first-child {
+  font-family: var(--serif);
+  font-size: 9px;
+  line-height: 1.6;
+  text-transform: none;
+  letter-spacing: 0;
+  max-width: 115px;
+}
+.purchase-offer > strong {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 39px;
+  gap: 6px;
+}
+.purchase-offer > strong > span {
+  font-family: var(--serif);
+  font-size: 8px;
+}
+.purchase-offer > p:last-child {
+  font-family: var(--serif);
+  font-size: 10px;
+  line-height: 1.6;
+}
+.layout-recognition {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 156px;
+}
+.layout-recognition .story-copy h1 {
+  font-size: clamp(32px, 10cqw, 43px);
+}
+.recognition {
+  position: relative;
+  z-index: 2;
+  margin: 18px 25px 0;
+  min-height: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.recognition > p {
+  font-family: var(--serif);
+  font-size: 10px;
+  margin: 0 0 10px;
+  color: var(--red);
+}
+.recognition > strong {
+  font-family: var(--serif);
+  font-size: clamp(16px, 5.5cqw, 23px);
+  font-weight: 400;
+  line-height: 1.35;
+  margin: 0;
+}
+.recognition > span {
+  font-family: var(--serif);
+  font-size: 8px;
+  line-height: 1.6;
+  margin: 4px 0 15px;
+}
+.recognition-rule {
+  width: 33px;
+  height: 1px;
+  background: var(--line);
+  margin: 0 0 15px;
+}
+.source-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.source-list > a {
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.source-list strong {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 21px;
+}
+.source-list span {
+  font-size: 12px;
+  line-height: 1.7;
+}
+.source-list small,
+.source-note {
+  font-size: 10px;
+  line-height: 1.8;
+  opacity: 0.8;
+}
+.source-list > a > span:last-child {
+  font-size: 11px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: var(--red);
+}
+.drawer,
+.age-card {
+  font-family: var(--serif);
+  font-weight: 400;
+}
+.drawer {
+  max-height: min(820px, calc(100dvh - 32px));
+}
+.drawer h2,
+.age-card h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: 0;
+  font-size: 30px;
+  line-height: 1.3;
+}
+.eyebrow,
+.drawer-top > .eyebrow,
+.recipe-intro > div > .eyebrow {
+  font-family: var(--serif);
+  font-size: 10px;
+  line-height: 1.5;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+.recipe-intro h3 {
+  font-family: var(--display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  font-size: 30px;
+}
+.recipe-tabs > button,
+.recipe-tabs > button[aria-selected="true"] {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 12px;
+}
+.recipe-intro p:not(.eyebrow),
+.ingredients > li,
+.recipe-steps > li {
+  font-size: 12px;
+  line-height: 1.75;
+}
+.recipe-serve {
+  font-size: 10px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.recipe-serve > span {
+  font-size: 13px;
+}
+.photo-caption {
+  font-size: 9px;
+  line-height: 1.8;
+  opacity: 0.8;
+}
+.ingredients strong {
+  font-weight: 400;
+}
+.drawer-cta,
+.age-no {
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.chapter-list strong {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 14px;
+}
+.chapter-list small {
+  font-size: 10px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.age-card > .eyebrow,
+.age-legal {
+  font-size: 10px;
+  line-height: 1.6;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.age-card > p:not(.eyebrow):not(.age-legal) {
+  font-size: 12px;
+  line-height: 1.8;
+}
+.age-card .age-no {
+  font-size: 11px;
+}
+@media (max-width: 600px) {
+  .stage {
+    padding: 0;
+    min-height: 100dvh;
+    display: block;
+  }
+  .story-panel {
+    width: 100%;
+    height: 100dvh;
+    aspect-ratio: auto;
+    min-height: 0;
+    max-height: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .experience {
+    min-height: 100dvh;
+  }
+  .story-header {
+    left: 23px;
+    right: 23px;
+    top: max(30px, calc(env(safe-area-inset-top) + 24px));
+  }
+  .story-progress {
+    top: max(3px, env(safe-area-inset-top));
+  }
+  .story-copy,
+  .layout-product .story-copy,
+  .layout-purchase .story-copy,
+  .layout-flavor .story-copy {
+    margin: 108px 24px 0;
+  }
+  .story-copy h1,
+  .layout-photo .story-copy h1,
+  .layout-product .story-copy h1,
+  .layout-purchase .story-copy h1 {
+    font-size: clamp(36px, 11.5vw, 51px);
+    line-height: 1;
+  }
+  .story-description {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .story-footer {
+    left: 24px;
+    right: 24px;
+    bottom: max(14px, env(safe-area-inset-bottom));
+  }
+  .primary-cta {
+    min-height: 44px;
+    font-size: 13px;
+  }
+  .drawer {
+    max-height: 94dvh;
+  }
+  .age-card h2 {
+    font-size: 27px;
+  }
+  .product-facts {
+    bottom: 153px;
+    font-size: 8px;
+  }
+  .product-seal {
+    width: 85px;
+    height: 85px;
+    right: 22px;
+    font-size: 18px;
+  }
+  .product-seal em {
+    font-size: 14px;
+  }
+  .recognition > strong {
+    font-size: 22px;
+  }
+}
+@media (max-height: 700px) {
+  .story-copy,
+  .layout-product .story-copy,
+  .layout-purchase .story-copy,
+  .layout-flavor .story-copy {
+    margin-top: 94px;
+  }
+  .story-copy h1,
+  .layout-photo .story-copy h1,
+  .layout-product .story-copy h1,
+  .layout-purchase .story-copy h1 {
+    font-size: clamp(29px, 10cqw, 39px);
+    margin-bottom: 12px;
+  }
+  .story-kicker {
+    font-size: 9px;
+    margin-bottom: 10px;
+  }
+  .story-description {
+    font-size: 10px;
+    line-height: 1.65;
+  }
+  .story-detail {
+    font-size: 8px;
+    margin-top: 8px;
+  }
+  .story-footer {
+    bottom: max(8px, env(safe-area-inset-bottom));
+  }
+  .primary-cta {
+    min-height: 39px;
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+  .story-bottom-row {
+    margin-top: 8px;
+  }
+  .responsibility {
+    margin-top: 6px;
+    font-size: 7px;
+  }
+  .round-button,
+  .playback-toggle {
+    width: 29px;
+    height: 29px;
+  }
+  .story-count {
+    min-height: 31px;
+  }
+  .layout-product {
+    padding-bottom: 139px;
+  }
+  .layout-purchase {
+    padding-bottom: 163px;
+  }
+  .product-facts {
+    bottom: 132px;
+    font-size: 7px;
+  }
+  .product-seal {
+    width: 72px;
+    height: 72px;
+    font-size: 16px;
+  }
+  .product-seal em {
+    font-size: 12px;
+  }
+  .recognition {
+    margin-top: 12px;
+  }
+  .recognition > p {
+    font-size: 9px;
+    margin-bottom: 6px;
+  }
+  .recognition > strong {
+    font-size: 18px;
+  }
+  .recognition > span {
+    font-size: 7px;
+    margin-bottom: 10px;
+  }
+  .recognition-rule {
+    margin-bottom: 10px;
+  }
+  .layout-recognition {
+    padding-bottom: 143px;
+  }
+  .layout-recognition .story-copy h1 {
+    font-size: 32px;
+  }
+  .purchase-offer > strong {
+    font-size: 32px;
+  }
+  .purchase-offer > p:first-child {
+    font-size: 8px;
+  }
+  .purchase-offer > p:last-child {
+    font-size: 9px;
+  }
+  .bottle-composition,
+  .purchase-composition {
+    margin-top: 12px;
+  }
+  .shipping-note {
+    font-size: 7px;
+  }
+}
+
+.product-seal > span {
+  font-weight: 400;
+}
+
+/* Real bottle photography, preserving the studio setting and full label. */
+.product-bottle {
+  transform: none;
+  filter: none;
+  object-fit: contain;
+  max-width: calc(100% - 50px);
+  width: auto;
+  height: calc(100% - 20px);
+  border-radius: 2px;
+}
+.offer-photograph {
+  width: 54%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+  padding-left: 18px;
+}
+.offer-photograph > img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  max-height: 100%;
+  border-radius: 2px;
+}
+.purchase-composition {
+  gap: 18px;
+  padding: 0 16px 0 0;
+}
+.purchase-offer {
+  width: 42%;
+  padding-right: 0;
+}
+@media (max-height: 700px) {
+  .offer-photograph {
+    padding-left: 12px;
+  }
+  .purchase-composition {
+    gap: 13px;
+    padding-right: 15px;
+  }
+}
